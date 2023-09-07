@@ -75,7 +75,7 @@ int check_nodes(binary_tree_t *tree, int level)
  */
 int binary_tree_is_complete(const binary_tree_t *tree)
 {
-	int i, level, result, height = 0;
+	int i, level, result = 1, height = 0;
 
 	if (tree == NULL)
 		return (0);
@@ -86,8 +86,5 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 		if (result == 0)
 			break;
 	}
-	if (result == 0)
-		return (0);
-	else
-		return (1);
+	return (result);
 }
