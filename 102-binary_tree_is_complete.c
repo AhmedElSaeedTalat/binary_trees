@@ -51,6 +51,8 @@ int check_nodes(binary_tree_t *tree, int level)
 		{
 			return (-1);
 		}
+		else if (tree->left == NULL && tree->right == NULL)
+			return (-1);
 	} else
 	{
 		left = check_nodes(tree->left, level - 1);
@@ -79,7 +81,11 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 		return (0);
 	height = find_height((binary_tree_t *) tree);
 	for (i = 1, level = 1; i < height; i++, level++)
+	{
 		result = check_nodes((binary_tree_t *) tree, level);
+		if (result == 0)
+			break;
+	}
 	if (result == 0)
 		return (0);
 	else
