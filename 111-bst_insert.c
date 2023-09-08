@@ -36,7 +36,5 @@ bst_t *help_insert(bst_t **tree, int value, bst_t *parent)
  */
 bst_t *bst_insert(bst_t **tree, int value)
 {
-	if (*tree == NULL)
-		return (help_insert(&(*tree), value, *tree));
-	return (help_insert(&(*tree), value, *tree));
+	return (help_insert(&(*tree), value, NULL));
 }
